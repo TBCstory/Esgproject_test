@@ -2,6 +2,8 @@ import { notFound } from "next/navigation";
 import { updateSectionContent } from "@/lib/actions";
 import { db } from "@/lib/db";
 
+export const dynamic = "force-dynamic";
+
 export default async function SectionDetailPage({
   params
 }: {

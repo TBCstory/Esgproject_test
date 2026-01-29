@@ -1,6 +1,8 @@
 import { createMapping } from "@/lib/actions";
 import { db } from "@/lib/db";
 
+export const dynamic = "force-dynamic";
+
 export default async function MappingsPage() {
   const requirements = await db.requirement.findMany({
     orderBy: { createdAt: "desc" },

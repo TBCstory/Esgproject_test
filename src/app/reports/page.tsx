@@ -1,6 +1,8 @@
 import { createReport } from "@/lib/actions";
 import { db } from "@/lib/db";
 
+export const dynamic = "force-dynamic";
+
 export default async function ReportsPage() {
   const projects = await db.project.findMany({ orderBy: { createdAt: "desc" } });
   const reports = await db.report.findMany({

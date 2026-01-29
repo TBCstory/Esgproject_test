@@ -1,6 +1,8 @@
 import { createFramework, createRequirement } from "@/lib/actions";
 import { db } from "@/lib/db";
 
+export const dynamic = "force-dynamic";
+
 export default async function RequirementsPage() {
   const frameworks = await db.framework.findMany({ orderBy: { createdAt: "desc" } });
   const requirements = await db.requirement.findMany({

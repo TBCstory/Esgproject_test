@@ -1,6 +1,8 @@
 import { createKpi, createKpiValue } from "@/lib/actions";
 import { db } from "@/lib/db";
 
+export const dynamic = "force-dynamic";
+
 export default async function KpisPage() {
   const kpis = await db.kpiCatalog.findMany({ orderBy: { createdAt: "desc" } });
   const projects = await db.project.findMany({ orderBy: { createdAt: "desc" } });

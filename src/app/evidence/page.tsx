@@ -1,6 +1,8 @@
 import { createEvidence, createEvidenceLink } from "@/lib/actions";
 import { db } from "@/lib/db";
 
+export const dynamic = "force-dynamic";
+
 export default async function EvidencePage() {
   const evidence = await db.evidenceFile.findMany({
     orderBy: { createdAt: "desc" }
