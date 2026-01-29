@@ -1,4 +1,5 @@
 import { db } from "@/lib/db";
+import { CoverageStatus } from "@prisma/client";
 
 export default async function CoveragePage() {
   const coverage = await db.mapping.groupBy({
@@ -41,12 +42,12 @@ export default async function CoveragePage() {
             </tr>
           </thead>
           <tbody>
-            {[
+            {([
               "UNMAPPED",
               "MAPPED",
               "NEEDS_EVIDENCE",
               "COMPLETE"
-            ].map((status) => (
+            ] as CoverageStatus[]).map((status) => (
               <tr key={status}>
                 <td>{status}</td>
                 <td>{coverageMap.get(status) ?? 0}</td>
